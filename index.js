@@ -35,7 +35,9 @@ async function loadExpenses() {
       card.querySelector(".delete-btn").addEventListener("click", async () => {
   const id = exp.id;
   try {
-    const res = await fetch(`http://127.0.0.1:5000/expenses/${id}`, {
+    const res = await fetch(`${API_URL}/${id}`, {
+
+
       method: "DELETE"
     });
     if (res.ok) {
