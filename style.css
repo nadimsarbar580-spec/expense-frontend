@@ -112,3 +112,17 @@ button:hover { background: #1a1a2e; }
   nav { flex-direction: column; gap: 0.8rem; text-align: center; }
   .expense-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
+
+
+.delete-btn {
+  background: #e94560;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 1rem;
+}
+
+.delete-btn:hover { background: #c0392b; }

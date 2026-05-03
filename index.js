@@ -22,15 +22,29 @@ async function loadExpenses() {
       const card = document.createElement("div");
       card.classList.add("expense-card");
       card.innerHTML = `
-        <div class="card-left">
-          <h3>${exp.title}</h3>
-          <span class="badge">${exp.category}</span>
-        </div>
-        <div class="card-right">
-          ₹${exp.amount}
-        </div>
-      `;
+  <div class="card-left">
+    <h3>${exp.title}</h3>
+    <span class="badge">${exp.category}</span>
+  </div>
+  <div class="card-right">
+    ₹${exp.amount}
+    <button class="delete-btn" data-id="${exp.id}">Delete</button>
+  </div>
+`;
       container.appendChild(card);
+      card.querySelector(".delete-btn").addEventListener("click", async () => {
+  const id = exp.id;
+  try {
+    const res = await fetch(`http://127.0.0.1:5000/expenses/${id}`, {
+      method: "DELETE"
+    });
+    if (res.ok) {
+      loadExpenses(); // refresh the list
+    }
+  } catch (error) {
+    alert("Could not delete. Is backend running?");
+  }
+});
     });
 
     totalEl.textContent = `Total: ₹${total}`;
