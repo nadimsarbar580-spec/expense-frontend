@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/expenses";
+const API_URL = "https://expense-backend-716i.onrender.com/expenses";
 
 async function loadExpenses() {
   const container = document.getElementById("expense-list");
